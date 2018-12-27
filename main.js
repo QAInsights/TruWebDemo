@@ -10,7 +10,6 @@ load.action("Action", async function () {
     var sum = 0;
     sum = a + b;
     load.log(sum);
-
  });
 
 load.finalize(async function () {
