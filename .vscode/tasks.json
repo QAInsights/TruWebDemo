@@ -1,0 +1,37 @@
+{
+    // Created by NaveenKumar Namachivayam - https://qainsights.com
+    "version": "1.0.0",
+    "tasks": [
+        {
+            "label": "TruWebSingleRun",
+            "type": "process",
+            "command": "${env:TRUWEB_PATH}\\TruWeb.exe",
+            "args": [
+                "-ide=vscode",
+                "${cwd}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "TruWebLoadRun",
+            "type": "process",
+            "command": "${env:TRUWEB_PATH}\\TruWeb.exe",
+            "args": [
+                "-ide=vscode",
+                "-mode=load",
+                "${cwd}"
+            ]
+        },
+        {
+            "label": "TruWebDebugRun",
+            "type": "process",
+            "command": "${env:TRUWEB_PATH}\\TruWeb.exe",
+            "isBackground": true,
+            "args": [
+                "-ide=vscode",
+                "-inspect",
+                "${cwd}"
+            ]
+        }
+    ]
+}

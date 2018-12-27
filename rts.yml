@@ -1,0 +1,37 @@
+httpConnection:                         #Configuration for the Net Loader component
+  maxPersistentConnectionsPerHost: 6    #The maximum number of connections per host a Vuser can open simultaneously (browser emulation)
+  maxConnectedHosts: 30                 #The maximum number of connected hosts per Vuser at any time
+  simulateNewUser: true                 #If true, simulates a new Vuser in each iteration (relevant for closing connections)
+  maxRedirectDepth: 10                  #The maximum number of redirects when sending request
+  reportAtomicTransactions: false       #If true, reports atomic transactions measurement
+  keepAliveTimeout: 60                  #Specifies the keep-alive period (in seconds) for an active network connection
+  connectTimeout: 120                   #Specifies the maximum amount of time (in seconds) a dial will wait for a "connect" to complete.
+  abruptClose: false                    #If true, SO_LINGER is set to 0. The socket will not enter TIME_WAIT state, and can be used immediately
+  requestTimeout: 120                   #Specifies the timeout (in seconds) to wait for an HTTP request to complete
+
+proxy:                                  #Configuration for Proxy server
+  useProxy: false                       #Indicates whether to use proxy during send requests
+  proxyServer: ""                       #Proxy server that should be used. Format: "server:port"
+  proxyAuthentication: ""               #Proxy server authentication credentials. Format: "username:password"
+
+ssl:
+  ignoreBadCertificate: false           #If true, SSL accepts any certificate presented by the server and any hostname in that certificate
+  useHTTP2: false                       #Relevant only in case ignoreBadCertificate is true. If true, http2 client will be configured
+
+replay:
+  generateSnapshots: false              #If true, a snapshot file will be generated for each WebRequest
+  useCache: false                       #If true, will cache resources response based on response headers
+
+vts:                                    #Configuration for VTS proxy server
+  useProxy: false                       #If true, uses proxy for vts requests
+  proxyServer: ""                       #Proxy server that should be used. Format: "server:port"
+  proxyAuthentication: ""               #Proxy server authentication credentials. Format: "username:password"
+
+encryption:
+  keyLocation: ""                       #Location of file which contains key used for data decryption. Format: "folder/keyFile.txt"
+
+vuserLogger:                            #Configuration for Vuser logger
+  maxBufferSize: 0                   #The maximum buffer size for each Vuser logger
+  logMode: full                         #Specify when to create the log file, the value should be one of "full, error, none"
+  logLevel: trace                       #The log level for Vuser logger, the value should be one of "error, warning, info, debug, trace"
+  showInConsole: false                  #If true, all the Vuser logging will be printed to the console (and the file)
